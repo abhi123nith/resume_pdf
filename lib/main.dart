@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
   Future<Uint8List> _generateResumePdf() async {
     final pdf = pw.Document();
 
-    // Load the profile picture (ensure to replace with your image file as bytes).
+    // Loading the profile picture
     final Uint8List profileImage = await _loadProfileImage();
 
     pdf.addPage(
@@ -100,7 +100,7 @@ class HomeScreen extends StatelessWidget {
 
               pw.Padding(
                 padding: const pw.EdgeInsets.only(
-                    top: 150), // Adjusted to leave space at the top
+                    top: 150), 
                 child: pw.Column(
                   crossAxisAlignment: pw.CrossAxisAlignment.start,
                   children: [
@@ -127,10 +127,7 @@ class HomeScreen extends StatelessWidget {
     return pdf.save();
   }
 
-  // Helper function to load the profile image (replace with your image file).
   Future<Uint8List> _loadProfileImage() async {
-    // Replace with actual image loading logic.
-    // You can load it from assets or network.
     return await rootBundle.load('images/rounded_profile_pic.png').then((data) {
       return data.buffer.asUint8List();
     });
